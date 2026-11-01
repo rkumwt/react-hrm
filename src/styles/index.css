@@ -1,0 +1,14 @@
+/* Cascade layers: antd styles sit between Tailwind's base (preflight) and utilities,
+   so Tailwind's reset doesn't break antd and utilities can still override antd. */
+@layer theme, base, antd, components, utilities;
+
+@import 'tailwindcss';
+
+/* Dark mode driven by a `dark` class on <html> (set by our ThemeProvider) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+html,
+body,
+#root {
+  height: 100%;
+}
